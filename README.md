@@ -1,8 +1,6 @@
 # Keyboard-launch
-Simple and useful, one key to launch, so beautiful.
 
-简单与实用，一键直达，很是优雅。
+相较原版，添加了一个后台，使本页面得以脱离浏览器，便于在不同设备不同浏览器下使用。  
+重写了部分UI和全部JS。   
 
-http://i.huguotao.com
-
-感谢[ldong](https://github.com/ldong) 将其发布至 Chrome webstore ，下载连接：[Keyboard-launch](https://chrome.google.com/webstore/detail/keyboard-launch/oocaffggffdbbefcmjbgkpbgehpnbadh) 
+可参考本实现自行实现一个后台，若使用本仓库代码，需要配置`server/app.js`中的两个值。

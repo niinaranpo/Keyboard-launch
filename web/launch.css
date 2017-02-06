@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+html{
+    background-image: url(/background.png);
+}
+
 body
 {
     margin: 0;
@@ -12,81 +16,13 @@ body
     user-select: none;
     //font-family: "Helvetica Neue", "Luxi Sans", "DejaVu Sans", Tahoma, "Hiragino Sans GB", \5FAE\8F6F\96C5\9ED1, Sans-serif, STHeiti !important;
 }
-
-div#setting
-{
-    display: none;
-    cursor: default;
-    position: absolute;
-    left: 50%;
-    top: 10%;
-    margin-left: -200px;
-    width: 400px;
-    height: 50px;
-    border-radius: 20px;
-    background: #e6e6e6;
-
-    -webkit-box-shadow: 0 0 18x 1px #bbb;
-    -moz-box-shadow: 0 0 18px 1px #bbb;
-    box-shadow: 0 0 18px 1px #bbb;
+#setting{
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 30px;
+    height: 30px;
 }
-
-div#setting img
-{
-    cursor: pointer;
-    position: absolute;
-    right: 12%;
-    top: 50%;
-    margin-top: -15px;
-}
-
-div#setting img:hover
-{
-    padding-bottom: 15px;
-    top: 40%;
-}
-
-form#settingDetail p
-{
-    display: inline-block;
-    color: #666;
-    //position: relative; top: 2px;//chrome align checkbox、radio and text with <p>
-}
-
-span#OK, span#CANCEL
-{
-    cursor: pointer;
-    margin: 0px 120px;
-    padding: 8px 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-
-}
-
-input#search
-{
-    height: 40px;
-    width: 500px;
-    font-size: 1em;
-    padding: 0 10px;
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    margin-left: -250px;
-    box-sizing: border-box;
-}
-
-input:focus
-{
-    outline: 1px solid #e69622;
-}
-
-input::-ms-input-placeholder{text-align: center;} 
-input::-webkit-input-placeholder{text-align: center;} 
-
-
-/*-----------KEYBOARD START-----------*/
-
 div#keyboard
 {
     width: 860px;
@@ -185,7 +121,7 @@ img.fav
 
 div.keySetting
 {
-    display: none;
+    /*display: none;*/
     position: absolute;
     left: 50%;
     top: -120%;
@@ -259,3 +195,46 @@ div.attentionBlink
 {
     opacity: .1;
 }*/
+
+#token { 
+    display: none;
+    font-size:16px; 
+    border-width:2px; 
+    border-color:#cccccc; 
+    border-style:solid; 
+    padding:7px; 
+    border-radius:50px; 
+    text-shadow:0px 0px 0px rgba(42,42,42,.75); 
+    box-shadow: 0px 1px 15px 0px rgba(42,42,42,.75);  
+    margin-top: 20px;    
+} 
+#token:focus { outline:none; } 
+
+#link{
+    display: none;
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#link>input { font-size:16px; border-width:2px; border-color:#cccccc; border-style:solid; border-radius:6px; padding:6px; box-shadow: 0px 2px 5px 0px rgba(42,42,42,.75);  } 
+#link>input:focus { outline:none; } 
+
+.btn {
+  -webkit-border-radius: 10;
+  -moz-border-radius: 10;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 16px;
+  background: #e8eaeb;
+  padding: 7px;
+  margin-left: 1rem;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #9e9e9e;
+  text-decoration: none;
+}

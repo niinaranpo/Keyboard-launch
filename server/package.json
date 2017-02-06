@@ -1,0 +1,19 @@
+{
+  "name": "keyboard-launch-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --harmony-async-await app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "blueimp-md5": "^2.6.0",
+    "koa": "^2.0.0",
+    "koa-better-body": "^3.0.2",
+    "koa-send": "^3.3.0",
+    "koa-static": "^3.0.0"
+  }
+}

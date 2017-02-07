@@ -25,12 +25,13 @@ $(document).ready(function () {
 
     $('#link>input').blur(function(){
         let data_index = $('#link').attr('data');
-        if (window.localStorage.getItem(data_index) !== $('#link>input').val()) {
-            window.localStorage.setItem(data_index, $('#link>input').val());
+        let value =  $('#link>input').val().replace(/http[s]?:\/\//, '');
+        if (window.localStorage.getItem(data_index) !== value) {
+            window.localStorage.setItem(data_index, value);
             window.localStorage.setItem('changed', true);
         }
-        if ($('#link>input').val() !== '') {
-            $('#' + data_index + '+img').attr('src', 'https://www.google.com/s2/favicons?domain=' + $('#link>input').val()).addClass('fav');
+        if (value !== '') {
+            $('#' + data_index + '+img').attr('src', 'https://www.google.com/s2/favicons?domain=' + value).addClass('fav');
         } else {
             $('#' + data_index + '+img').attr('src', '').removeClass('fav');
         }
@@ -61,6 +62,7 @@ $(document).ready(function () {
         } else {
             $('#setting>img').attr('src', 'setting.png');
             $('#token').css('display', 'none');
+            $('#link').css('display', 'none');
             $('#token').val('');
             $.ajax({
                 type: "POST",

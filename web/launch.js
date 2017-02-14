@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
     window.localStorage.setItem('changed', false);
     let data;
     $.get('data', function (rawData) {
@@ -14,6 +13,8 @@ $(document).ready(function () {
                     $('#link>input').attr('placeholder', 'The target for "' + this.innerText + '"');
                     $('#link>input').focus();
                 } else if (data[index] !== '') {
+                    $(this).addClass('keyDownLi');
+                    $(this).parent().addClass('keyDownSpan');
                     window.location = 'http://' + data[index];
                 }
             })
@@ -23,9 +24,9 @@ $(document).ready(function () {
         }
     })
 
-    $('#link>input').blur(function(){
+    $('#link>input').blur(function () {
         let data_index = $('#link').attr('data');
-        let value =  $('#link>input').val().replace(/http[s]?:\/\//, '');
+        let value = $('#link>input').val().replace(/http[s]?:\/\//, '');
         if (window.localStorage.getItem(data_index) !== value) {
             window.localStorage.setItem(data_index, value);
             window.localStorage.setItem('changed', true);
@@ -36,7 +37,7 @@ $(document).ready(function () {
             $('#' + data_index + '+img').attr('src', '').removeClass('fav');
         }
         $('#link>input').val('');
-        $('#link>input').attr('placeholder', 'The target for "' + $('#' + data_index).text() + '"');     
+        $('#link>input').attr('placeholder', 'The target for "' + $('#' + data_index).text() + '"');
     })
 
     // $('#ok-btn').click(function () {
@@ -82,6 +83,20 @@ $(document).ready(function () {
                 success: function () { },
                 dataType: "json"
             });
+        }
+    })
+
+    var isKeydown = false;
+
+    $(document).keydown(function (event) {
+        if (!isKeydown && $('#' + event.which + '+img').attr('src') !== '') {
+            console.log(event.which);
+            $('#' + event.which).addClass('keyDownLi');
+            $('#' + event.which).parent().addClass('keyDownSpan');
+            setTimeout(function () { $('#' + event.which).removeClass('keyDownLi') }, 80);
+            setTimeout(function () { $('#' + event.which).parent().removeClass('keyDownSpan') }, 80);
+            $('#' + event.which).click();
+            isKeydown = true;
         }
     })
 })

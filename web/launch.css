@@ -159,8 +159,6 @@ div.keySetting img:hover
     padding: 8px 8px 16px;
 }
 
-/*-----------KEYBOARD END-----------*/
-
 img#keyboardBg
 {
     opacity: 0;
@@ -168,33 +166,6 @@ img#keyboardBg
     width: 100%;
     height: 100%;
 }
-
-/*this is for extensions
-div.attention
-{
-    position: absolute;
-    bottom: 39px;
-    left: 76%;
-    margin-left: -3px;
-    width: 6px;
-    height: 6px;
-    background-color: #faa;
-    border-radius: 6px;
-
-    -webkit-box-shadow: 0 0 8px #f00;
-    -moz-box-shadow: 0 0 8px #f00;
-    box-shadow: 0 0 8px #f00;
-
-    transition: all 1.5s cubic-bezier(.4,.6,.4,.6);
-    -webkit-transition: all 1.5s cubic-bezier(.4,.6,.4,.6);
-    -moz-transition: all 1.5s cubic-bezier(.4,.6,.4,.6);
-    -o-transition: all 1.5s cubic-bezier(.4,.6,.4,.6);
-}
-
-div.attentionBlink
-{
-    opacity: .1;
-}*/
 
 #token { 
     display: none;
@@ -237,4 +208,8 @@ div.attentionBlink
 .btn:hover {
   background: #9e9e9e;
   text-decoration: none;
+}
+
+.wait {
+	cursor: wait;
 }

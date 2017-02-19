@@ -1,9 +1,22 @@
 $(document).ready(function () {
     window.localStorage.setItem('changed', false);
+
+    $('ul li').each(function (index, value) {
+        let element = $(value);
+        if (window.localStorage.getItem(element.attr('id')) !== '') {
+            element.next().attr('src', 'https://www.google.com/s2/favicons?domain=' + window.localStorage.getItem(element.attr('id'))).addClass('fav');
+        }
+        $('#' + element.attr('id')).click(function (params) {
+            
+        })
+    })
+    $('#setting').addClass('wait');
+
     let data;
     $.get('data', function (rawData) {
         data = JSON.parse(rawData);
         for (let index in data) {
+            $('#' + index).next().attr('src', '').removeClass('fav');
             window.localStorage.setItem(index, data[index]);
             $('#' + index).click(function () {
                 if ($('#setting>img').attr('src') === 'save.png') {
@@ -22,6 +35,7 @@ $(document).ready(function () {
                 $('#' + index + '+img').attr('src', 'https://www.google.com/s2/favicons?domain=' + data[index]).addClass('fav');
             }
         }
+        $('#setting').removeClass('wait');
     })
 
     $('#link>input').blur(function () {
@@ -40,23 +54,10 @@ $(document).ready(function () {
         $('#link>input').attr('placeholder', 'The target for "' + $('#' + data_index).text() + '"');
     })
 
-    // $('#ok-btn').click(function () {
-    //     let data_index = $('#link').attr('data');
-    //     if (window.localStorage.getItem(data_index) !== $('#link>input').val()) {
-    //         window.localStorage.setItem(data_index, $('#link>input').val());
-    //         window.localStorage.setItem('changed', true);
-    //     }
-    //     if ($('#link>input').val() !== '') {
-    //         $('#' + data_index + '+img').attr('src', 'https://www.google.com/s2/favicons?domain=' + $('#link>input').val()).addClass('fav');
-    //     } else {
-    //         $('#' + data_index + '+img').attr('src', '').removeClass('fav');
-    //     }
-    //     $('#link>input').val('');
-    //     $('#link>input').attr('placeholder', 'The target for "' + $('#' + data_index).text() + '"');
-    //     $('#link>input').focus();
-    // })
-
     $('#setting>img').click(function () {
+        if ($('#setting').hasClass('wait')) {
+            return;
+        }
         if ($('#setting>img').attr('src') === 'setting.png') {
             $('#setting>img').attr('src', 'save.png');
             $('#token').css('display', 'block');

@@ -5,10 +5,10 @@ $(document).ready(function () {
         let element = $(value);
         if (window.localStorage.getItem(element.attr('id')) !== '') {
             element.next().attr('src', 'https://www.google.com/s2/favicons?domain=' + window.localStorage.getItem(element.attr('id'))).addClass('fav');
+            $('#' + element.attr('id')).click(function () {
+                window.location = 'http://' + window.localStorage.getItem(element.attr('id'));
+            })
         }
-        $('#' + element.attr('id')).click(function (params) {
-            
-        })
     })
     $('#setting').addClass('wait');
 
